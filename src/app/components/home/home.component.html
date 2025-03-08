@@ -1,0 +1,34 @@
+<form #userForm="ngForm">
+    <label for="name">Nome:</label>
+    <input id="name" type="text" [(ngModel)]="name" name="name" placeholder="Digite seu nome" required
+        #nameInput="ngModel">
+
+    <label for="name">Email:</label>
+    <input id="name" type="text" [(ngModel)]="email" name="email" placeholder="Digite seu email" required
+        #nameInput="ngModel">
+
+    <button [attr.aria-label]="name" (click)="submit()" class="button-green">Enviar</button>
+    <button (click)="limpar()" class="button-gray"> Limpar</button>
+
+    <div *ngIf="mostraMsg && !name" class="error">
+        * O nome é obrigatório.
+    </div>
+
+    <div *ngIf="mostraMsg && !email" class="error">
+        * O email é obrigatório.
+    </div>
+</form>
+
+<div>
+    <div *ngIf="mostraTitulo">
+        <h1>Bem vindo(a), {{name}} </h1>
+        <article>
+            <select [(ngModel)]="grau">
+                <option value="" disabled selected>Selecione o grau de instrução</option>
+                <option *ngFor="let grau of listGrauInstrucao" [value]="grau">{{ grau[0] }}</option>
+            </select>
+        </article>
+    </div>
+
+    <button [attr.aria-label]="name" (click)="avancarEtapa(grau)" class="button" *ngIf="mostraTitulo">Avançar</button>
+</div>

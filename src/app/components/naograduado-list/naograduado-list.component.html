@@ -1,0 +1,18 @@
+<div class="panel-container">
+    <div class="vaga-card" *ngFor="let vaga of listaVagas">
+      <div class="vaga-header">
+        <h3>{{ vaga.titulo }}</h3>
+      </div>
+      <div class="vaga-body">
+        <p class="descricao">{{ vaga.descricao }}</p>
+        <p class="requisitos"><strong>Requisitos:</strong> {{ vaga.requisitos }}</p>
+      </div>
+      <div class="vaga-footer">
+        <a [href]="vaga.link" target="_blank" class="btn-candidatar">Candidatar-se</a>
+      </div>
+    </div>
+    <div>
+        <a [href]="linkHome" class="btn-candidatar" style="float: left;">Voltar</a>
+      </div>
+  </div>
+  
